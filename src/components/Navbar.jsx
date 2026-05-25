@@ -46,7 +46,7 @@ const handleSignOut = () => {
 
   <li>
     <Link
-      href={"/animals"}
+      href={"/all-animals"}
       className="transition-colors duration-300 hover:text-green-500"
     >
       All Animals

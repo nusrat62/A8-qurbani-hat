@@ -1,11 +1,10 @@
 import Image from "next/image";
 import {Card,Chip} from "@heroui/react";
 import { TbCurrencyTaka } from "react-icons/tb";
-
+import Link from "next/link";
 
 
 const PhotoCard = ({ photo }) => {
-    console.log(photo);
     return (
         <Card className="border-2 border-gray-300 rounded-xl p-4">
             <div className="relative w-full aspect-square">
@@ -34,7 +33,10 @@ const PhotoCard = ({ photo }) => {
                 <p className="text-gray-500 gap-2">Breed: {photo.breed}</p> 
             </div>
           
-          <button className="bg-blue-500 text-white px-4 py-2 w-full rounded-lg mt-4 hover:bg-blue-600 transition-colors duration-300">View Details</button>
+          <Link href={`/all-animals/${photo.id}`}>
+            <button className="bg-blue-500 text-white px-4 py-2 w-full rounded-lg mt-4 hover:bg-blue-600 transition-colors duration-300">View Details</button>
+            </Link>
+          
            
         </Card>
     );
