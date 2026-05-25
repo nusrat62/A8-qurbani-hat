@@ -17,6 +17,7 @@ import { useState } from "react";
 
 export default function SignUpPage() {
   const router = useRouter();
+
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (e) => {
@@ -27,13 +28,12 @@ export default function SignUpPage() {
     const email = e.target.email.value.trim().toLowerCase();
     const password = e.target.password.value;
 
-  
+    // Validation
     if (!name || !email || !password) {
       alert("⚠️ Please fill all required fields");
       return;
     }
 
-  
     if (image && !image.startsWith("http")) {
       alert("⚠️ Please enter a valid image URL");
       return;
@@ -67,7 +67,7 @@ export default function SignUpPage() {
       console.log({ data, error });
 
       if (error) {
-        alert("❌ Signup failed: " + error.message);
+        alert(error.message || "Signup failed");
         return;
       }
 
@@ -75,8 +75,8 @@ export default function SignUpPage() {
 
       router.push("/");
     } catch (err) {
-      alert("❌ Something went wrong!");
       console.error(err);
+      alert("❌ Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -86,31 +86,70 @@ export default function SignUpPage() {
     <Card className="border mx-auto w-125 py-10 mt-5">
       <h1 className="text-center text-2xl font-bold">Sign Up</h1>
 
-      <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
+      <Form
+        className="flex w-96 mx-auto flex-col gap-4"
+        onSubmit={onSubmit}
+      >
         <TextField isRequired name="name" type="text">
           <Label>Name</Label>
-          <Input placeholder="Enter your name" autoComplete="off" />
+          <Input placeholder="Enter your name" />
           <FieldError />
         </TextField>
 
         <TextField name="image" type="text">
           <Label>Image URL</Label>
-          <Input placeholder="Image URL" autoComplete="off" />
+          <Input placeholder="Image URL" />
           <FieldError />
         </TextField>
 
-        <TextField isRequired name="email" type="email">
+        <TextField
+          isRequired
+          name="email"
+          type="email"
+          validate={(value) => {
+            if (
+              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
+            ) {
+              return "Please enter a valid email address";
+            }
+
+            return null;
+          }}
+        >
           <Label>Email</Label>
-          <Input placeholder="john@example.com" autoComplete="off" />
+          <Input placeholder="john@example.com" />
           <FieldError />
         </TextField>
 
-        <TextField isRequired name="password" type="password">
+        <TextField
+          isRequired
+          minLength={8}
+          name="password"
+          type="password"
+          validate={(value) => {
+            if (value.length < 8) {
+              return "Password must be at least 8 characters";
+            }
+
+            if (!/[A-Z]/.test(value)) {
+              return "Password must contain at least one uppercase letter";
+            }
+
+            if (!/[0-9]/.test(value)) {
+              return "Password must contain at least one number";
+            }
+
+            return null;
+          }}
+        >
           <Label>Password</Label>
-          <Input placeholder="Enter your password" autoComplete="new-password" />
+
+          <Input placeholder="Enter your password" />
+
           <Description>
-            Must be 8+ chars with 1 uppercase & 1 number
+            Must be at least 8 characters with 1 uppercase and 1 number
           </Description>
+
           <FieldError />
         </TextField>
 
