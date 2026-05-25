@@ -23,7 +23,7 @@ const Banner = () => {
         </p>
 
         <div className="flex gap-4">
-          <Link href="/animals">
+          <Link href="/all-animals">
             <Button className="bg-green-600 hover:bg-green-700 text-white">
               Browse Animals
             </Button>
