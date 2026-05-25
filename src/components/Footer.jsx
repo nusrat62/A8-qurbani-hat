@@ -1,23 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 
+
 const Footer = () => {
   return (
-    <footer className="relative mt-24">
+    <footer className="relative mt-24 bg-[#064e3b] text-yellow-200">
 
-      {/* top divider */}
-      <div className="mt-12 h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-white/10" />
-
-      {/* background */}
-      <div className="absolute inset-0 -z-10 bg-white dark:bg-[#0a0a0b]" />
-
-      {/* glow */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-green-500/5 via-transparent to-emerald-500/5 blur-3xl" />
+      {/* soft glow */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-black/20 via-transparent to-yellow-500/10 blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-6 py-16">
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
           {/* BRAND */}
           <div className="space-y-4">
@@ -26,123 +20,80 @@ const Footer = () => {
               <Image
                 src="/logo.jpg"
                 alt="QurbaniHat logo"
-                width={80}
-                height={80}
-                className="rounded-full border border-green-500 shadow-sm"
+                width={70}
+                height={70}
+                className="rounded-full border border-yellow-300 shadow-md"
               />
 
-              <h2 className="text-2xl font-extrabold">
-                <span className="text-green-600">Qurbani</span>
-                Hat
+              <h2 className="text-2xl font-extrabold text-yellow-200">
+                <span className="text-yellow-400">Qurbani</span>Hat
               </h2>
             </div>
 
-            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-sm text-yellow-100/80 leading-relaxed">
               Trusted livestock marketplace for Qurbani animals.
               Find healthy cows, goats and sheep directly from farmers.
             </p>
 
           </div>
 
-          {/* MARKETPLACE */}
+          {/* CONTACT US */}
           <div>
-            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4">
-              Marketplace
+            <h3 className="text-sm font-bold mb-4 text-yellow-300">
+              Contact Us
             </h3>
 
-            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-
-              <li>
-                <Link href="/animals" className="hover:text-green-600 transition">
-                  All Animals
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/animals" className="hover:text-green-600 transition">
-                  Cows Collection
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/animals" className="hover:text-green-600 transition">
-                  Goats Collection
-                </Link>
-              </li>
-
-            </ul>
-          </div>
-
-          {/* COMPANY */}
-          <div>
-            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4">
-              Company
-            </h3>
-
-            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-
-              <li>
-                <Link href="/about" className="hover:text-green-600 transition">
-                  About Us
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/contact" className="hover:text-green-600 transition">
-                  Contact
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/my-profile" className="hover:text-green-600 transition">
-                  My Profile
-                </Link>
-              </li>
-
-            </ul>
-          </div>
-
-          {/* CTA */}
-          <div className="space-y-4">
-
-            <h3 className="text-sm font-bold text-gray-900 dark:text-white">
-              Book Qurbani Animal
-            </h3>
-
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Choose verified livestock easily and book for Qurbani in few clicks.
+            <p className="text-sm text-yellow-100/80 leading-relaxed">
+              Email: support@qurbanihat.com <br />
+              Phone: +880 1XXXXXXXXX <br />
+              Dharmanagar, Bangladesh
             </p>
-
-            <Link
-              href="/animals"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-full 
-              bg-green-600 text-white text-sm font-medium 
-              hover:bg-green-700 transition shadow-md"
-            >
-              Browse Now
-            </Link>
-
           </div>
+
+         {/* FOLLOW US */}
+<div>
+  <h3 className="text-sm font-bold mb-4 text-yellow-300">
+    Follow Us
+  </h3>
+
+  <div className="flex gap-4">
+
+    {/* Facebook */}
+    <a href="https://static.vecteezy.com/system/resources/thumbnails/018/930/698/small_2x/facebook-logo-facebook-icon-transparent-free-png.png" target="_blank">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/018/930/698/small_2x/facebook-logo-facebook-icon-transparent-free-png.png" className="w-9 h-9 hover:scale-110 transition" />  
+    </a>
+
+    {/* Instagram */}
+    <a href="https://img.magnific.com/premium-vector/instagram-vector-logo-icon-social-media-logotype_901408-392.jpg?semt=ais_hybrid&w=740&q=80" target="_blank">
+      <img src="https://img.magnific.com/premium-vector/instagram-vector-logo-icon-social-media-logotype_901408-392.jpg?semt=ais_hybrid&w=740&q=80" className="w-9 h-9 hover:scale-110 transition" />
+    </a>
+
+    {/* YouTube */}
+    <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCE8Ofe3duyxd5_LVklR-R-vql2jCiX_LtUw&s" target="_blank">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCE8Ofe3duyxd5_LVklR-R-vql2jCiX_LtUw&s" className="w-9 h-9 hover:scale-110 transition" />
+    </a>
+
+    {/* WhatsApp */}
+    <a href="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584844.jpg" target="_blank">
+      <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584844.jpg" className="w-9 h-9 hover:scale-110 transition" />
+    </a>
+
+  </div>
+</div>
 
         </div>
 
-        {/* bottom line */}
-        <div className="mt-12 h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-white/10" />
+        {/* divider */}
+        <div className="mt-12 h-px w-full bg-yellow-400/20" />
 
         {/* bottom bar */}
-        <div className="mt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+        <div className="mt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-yellow-100/70">
 
           <p>© {new Date().getFullYear()} QurbaniHat. All rights reserved.</p>
 
-          <div className="flex gap-6">
-            <Link href="/animals" className="hover:text-green-600 transition">
-              Marketplace
-            </Link>
-
-            <Link href="/contact" className="hover:text-green-600 transition">
-              Support
-            </Link>
-          </div>
+          <p className="text-yellow-300">
+            Made with ❤️ for farmers & buyers
+          </p>
 
         </div>
 

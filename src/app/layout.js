@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <Navbar />
 
         {/* ❌ max-w-7xl removed from main */}
-        <main className="w-full">{children}</main>
+        <main className="max-w-7xl mx-auto">{children}</main>
 
         <Footer />
       </body>
