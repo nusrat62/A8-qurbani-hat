@@ -13,15 +13,13 @@ const Featured = () => {
             key={item.id}
             className="w-[330px] bg-[#ffffff] shadow-lg rounded-2xl p-4 relative"
           >
-            <div className="relative h-[200px] overflow-hidden rounded-2xl">
-              <Image
-                src={item.image}
-                alt={item.name}
-                fill
-                sizes="(max-width: 768px) 100vw, 330px"
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={item.image}
+              width={300}
+              height={200}
+              className="rounded-2xl object-cover h-[200px] w-auto"
+              alt={item.name}
+            />
 
             <div className="absolute top-3 right-3 bg-[#FFD700] text-[#2D6A4F] text-xs font-bold px-3 py-1 rounded-full shadow-md">
               {item.badge}
