@@ -63,7 +63,7 @@ const Navbar = () => {
 
           <li>
             <Link
-              href={"/my-profile"}
+              href={"/profile"}
               className="transition-colors duration-300 hover:text-green-500"
             >
               My Profile
