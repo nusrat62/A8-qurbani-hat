@@ -1,4 +1,5 @@
 "use client";
+
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
@@ -6,7 +7,6 @@ import {
   Card,
   Description,
   FieldError,
-  Form,
   Input,
   Label,
   TextField,
@@ -14,8 +14,7 @@ import {
 import { useRouter } from "next/navigation";
 
 export default function SignUpPage() {
-
-    const router = useRouter()
+  const router = useRouter();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -25,27 +24,30 @@ export default function SignUpPage() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const {data, error} = await authClient.signUp.email({
-        name,
-        email,
-        password,
-        image,
-    })
-    
+    const { data, error } = await authClient.signUp.email({
+      name,
+      email,
+      password,
+      image,
+    });
 
-    console.log({data, error})
+    console.log({ data, error });
 
-    if(!error) {
-        router.push('/')
+    if (!error) {
+      router.push("/");
     }
-
   };
 
   return (
-    <Card className="border mx-auto w-125 py-10 mt-5">
-      <h1 className="text-center text-2xl font-bold">Sign Up</h1>
+    <Card className="border mx-auto w-[500px] py-10 mt-10">
+      <h1 className="text-center text-3xl font-bold mb-6 text-green-600">
+        Sign Up
+      </h1>
 
-      <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
+      <form
+        className="flex w-96 mx-auto flex-col gap-4"
+        onSubmit={onSubmit}
+      >
         <TextField isRequired name="name" type="text">
           <Label>Name</Label>
           <Input placeholder="Enter your name" />
@@ -54,7 +56,7 @@ export default function SignUpPage() {
 
         <TextField isRequired name="image" type="text">
           <Label>Image URL</Label>
-          <Input placeholder="Image URL" />
+          <Input placeholder="Enter image URL" />
           <FieldError />
         </TextField>
 
@@ -63,7 +65,9 @@ export default function SignUpPage() {
           name="email"
           type="email"
           validate={(value) => {
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
+            if (
+              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
+            ) {
               return "Please enter a valid email address";
             }
 
@@ -84,9 +88,11 @@ export default function SignUpPage() {
             if (value.length < 8) {
               return "Password must be at least 8 characters";
             }
+
             if (!/[A-Z]/.test(value)) {
               return "Password must contain at least one uppercase letter";
             }
+
             if (!/[0-9]/.test(value)) {
               return "Password must contain at least one number";
             }
@@ -95,25 +101,27 @@ export default function SignUpPage() {
           }}
         >
           <Label>Password</Label>
+
           <Input placeholder="Enter your password" />
+
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
           </Description>
+
           <FieldError />
         </TextField>
 
-        <div className="flex gap-2">
-          <Button type="submit">
+        <div className="flex gap-3 mt-4">
+          <Button color="success" type="submit">
             <Check />
             Submit
           </Button>
-          <Button type="reset" variant="secondary">
+
+          <Button color="default" type="reset">
             Reset
           </Button>
         </div>
-      </Form>
-
-
+      </form>
     </Card>
   );
 }
