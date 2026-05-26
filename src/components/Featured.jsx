@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import featuredData from "../../public/featuredData.json";
 
 const Featured = () => {
@@ -29,11 +30,11 @@ const Featured = () => {
             <p className="text-sm text-gray-500 mb-2">{item.breed}</p>
             <p className="text-gray-500 mb-4">{item.description}</p>
 
-         
+          <Link href={`/all-featured/${item.id}`}>
               <button className="bg-[#40916C] text-white font-medium hover:bg-[#2D6A4F] btn btn-block">
                 View Details
               </button>
-           
+            </Link>
           </div>
         ))}
       </div>
